@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            line-height: 1.8;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .result {
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Functions Assignment</h1>
+    <div id="output"></div>
+    </body>
+</html>
+
+    <script>
+        // ==========================
+        // STRING MANIPULATION FUNCTIONS
+        // ==========================
+
+        // Reverse a String
+        function reverseString(str) {
+            return str.split("").reverse().join("");
+        }
+
+        // Count Characters
+        function countCharacters(str) {
+            return str.length;
+        }
+
+        // Capitalize Words
+        function capitalizeWords(sentence) {
+            return sentence
+                .split(" ")
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ");
+        }
+
+        // ==========================
+        // ARRAY FUNCTIONS
+        // ==========================
+
+        // Find Maximum
+        function findMax(arr) {
+            return Math.max(...arr);
+        }
+
+        // Find Minimum
+        function findMin(arr) {
+            return Math.min(...arr);
+        }
+
+        // Sum of Array
+        function sumArray(arr) {
+            return arr.reduce((sum, num) => sum + num, 0);
+        }
+
+        // Filter Array
+        function filterArray(arr, condition) {
+            return arr.filter(condition);
+        }
+
+        // ==========================
+        // MATHEMATICAL FUNCTIONS
+        // ==========================
+
+        // Factorial
+        function factorial(n) {
+            let result = 1;
+
+            for (let i = 1; i <= n; i++) {
+                result *= i;
+            }
+
+            return result;
+        }
+
+        // Prime Number Check
+        function isPrime(num) {
+            if (num <= 1) return false;
+
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        // Fibonacci Sequence
+        function fibonacci(n) {
+            let sequence = [];
+
+            if (n >= 1) sequence.push(0);
+            if (n >= 2) sequence.push(1);
+
+            for (let i = 2; i < n; i++) {
+                sequence.push(sequence[i - 1] + sequence[i - 2]);
+            }
+
+            return sequence;
+        }
+
+        // ==========================
+        // DISPLAY RESULTS
+        // ==========================
+
+        const output = document.getElementById("output");
+
+        function displayResult(title, result) {
+            output.innerHTML += `
+                <div class="result">
+                    <strong>${title}</strong><br>
+                    ${result}
+                </div>
+            `;
+        }
+
+        // String Functions
+        displayResult("Reverse String ('Hello')", reverseString("Hello"));
+        displayResult("Count Characters ('JavaScript')", countCharacters("JavaScript"));
+        displayResult(
+            "Capitalize Words ('hello world from javascript')",
+            capitalizeWords("hello world from javascript")
+        );
+
+        // Array Functions
+        displayResult(
+            "Maximum Value [10, 20, 5, 40, 15]",
+            findMax([10, 20, 5, 40, 15])
+        );
+
+        displayResult(
+            "Minimum Value [10, 20, 5, 40, 15]",
+            findMin([10, 20, 5, 40, 15])
+        );
+
+        displayResult(
+            "Sum of Array [1, 2, 3, 4, 5]",
+            sumArray([1, 2, 3, 4, 5])
+        );
+
+        displayResult(
+            "Filter Even Numbers [1, 2, 3, 4, 5, 6]",
+            filterArray([1, 2, 3, 4, 5, 6], num => num % 2 === 0)
+        );
+
+        // Mathematical Functions
+        displayResult("Factorial of 5", factorial(5));
+        displayResult("Is 7 Prime?", isPrime(7));
+        displayResult("Is 10 Prime?", isPrime(10));
+        displayResult("First 10 Fibonacci Numbers", fibonacci(10));
+
+    </script>
